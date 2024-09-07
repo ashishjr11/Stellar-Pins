@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/StyleSheets/Profile.css">
+<body>
+    <div class="container">
+
+        <div class="topBar">
+        <a href="/feed">
+            <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" alt="logo" class="topBar_img" />
+        </a>
+        
+            <p class="top-text home"><a href="/feed">home</a></p>
+            <p class="top-text">explore</p>
+            <p class="top-text"><a href="/createpost">create</a></p>
+        
+            <input type="search" name="" id="searchBar" placeholder="search" />
+        
+            <img src="/Image/noti.png" alt="notification" class="noti" />
+        
+            <a href="/profile"><img src="<%= user.avtar %>" alt="user" class="user" /></a>
+        </div>
+
+        <div class="aboutAccout">
+
+            <img src="<%= user.avtar %>" alt="user image">
+            <h1 class="user-fullName"><%= user.fullName %></h1>
+            <h3 class="user-usrname">@<%= user.userName %></h3>
+            <p>रिवर्तनमेव स्थिरमस्ति ||</p>
+
+            <button type="button" class="logout-btn" id="logout-btn">logout</button>
+
+        </div>
+
+        <!-- Success message -->
+        <div id="successMessage">Your post has been uploaded successfully!</div>
+
+        <div class="toggle-buttons">
+            <button onclick="showPosts()" class="post-btn">Posts</button>
+            <button onclick="showSaved()" class="saved-btn">Saved</button>
+        </div>
+
+        <div class="">
+
+        </div>
+
+    <div class="uploadedpost" id="user-posts">
+
+        <% if (user.posts.length > 0) { %>
+        <% user.posts.map(function (post) { %>
+
+        <div class="card">
+        
+            <div class="imagePart">
+                <img src="<%= post.imageUrl %>" class="card-img" alt="user image">
+            </div>
+        
+            <div class="captionPart">
+        
+                <div class="caption">
+                    <p class="card-text">
+                        <%= post.caption %>
+                    </p>
+                </div>
+        
+        
+            </div>
+        
+        
+        </div>
+        
+            <% }) %>
+            <%} else {%>
+                <p class="no-post">no post uploaded</p>
+                <%}%>
+
+                
+
+               
+    </div>
+
+    <div class="saved-post" id="saved-posts" style="display: none;">
+       <% if(savedPost.length > 0){ %>
+        <!-- show the cards -->
+
+        <% savedPost.map(function (post) { %>
+            
+            <div class="card">
+            
+                <div class="imagePart">
+                    <img src="<%= post.imageUrl %>" class="card-img" alt="user image">
+                </div>
+            
+                <div class="captionPart">
+            
+                    <div class="caption">
+                        <p class="card-text">
+                            <%= post.caption %>
+                        </p>
+                    </div>
+            
+            
+                </div>
+            
+            
+            </div>
+        
+            <% }) %>
+
+
+
+        <% } else { %>
+        <p class="saved-para">you have saved nothing</p>
+        <% } %>
+    </div>
+
+    
+
+    </div>
+
+    <script src="/Javascript/Profile.js"></script>
+</body>
+</html>

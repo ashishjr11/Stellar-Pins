@@ -1,0 +1,167 @@
+.container {
+  /* border: 2px solid red; */
+}
+
+.topBar {
+  /* border: 2px solid gold; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.topBar_img {
+  height: 60px;
+}
+
+.top-text {
+  /* border:2px solid black; */
+  text-transform: capitalize;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+}
+
+.top-text a {
+  text-decoration: none;
+  color: black;
+}
+
+.home {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 20%;
+}
+
+#searchBar {
+  /* border:2px solid hotpink; */
+  width: 55%;
+  height: 42px;
+  background: #f1f1f1;
+  border: none;
+  border-radius: 15px;
+}
+#searchBar::placeholder {
+  padding-left: 12px;
+  color: #767676;
+  font-weight: 600;
+  font-style: oblique;
+  text-transform: capitalize;
+  font-size: 15px;
+}
+
+.noti,
+.user {
+  /* border: 2px solid red; */
+  height: 35px;
+  border-radius: 50%;
+}
+
+
+.feed-cards{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 18rem;
+  height:fit-content;
+  margin-top: 4%;
+  background-color: #f7f7f7;
+  border-radius: 15px;
+}
+
+
+.card-img{
+  border-radius: 15px 15px 0 0;
+  width:100%;
+  height: 300px;
+}
+
+.captionPart{
+  border-top: 1px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+   align-items:center;
+  margin-top: 2%;  
+}
+
+.card-text{
+  text-transform: capitalize;
+  font-size: 17px;
+  margin-left: 5px;
+  width: 90%;
+  text-wrap: wrap;
+}
+
+.savedPost{
+  margin-right: 4px;
+  background-color: #767676;
+  height:30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.savedIcon{
+  color: white;
+  cursor: pointer;
+}
+
+
+.end-section{
+  border:2px solid black;
+  display: flex;
+}
+
+.end-section img{
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+.no-post{
+  width: 75%;
+  text-align: center;
+  margin-top: 5%;
+  text-transform: capitalize;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.btn{
+  text-transform: capitalize;
+}
+
+.dropdown-btn{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .topBar{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+  #searchBar{
+    display:none;
+  }
+  .top-text{
+    border: 2px solid black;
+  display:none;
+  }
+.dropdown{
+  display: block;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+}

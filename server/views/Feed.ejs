@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/StyleSheets/Feed.css" />
+  <script defer src="https://kit.fontawesome.com/44ec00b28e.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topBar">
+        <img
+          src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png"
+          alt="logo"
+          class="topBar_img"
+        />
+
+        <p class="top-text home">home</p>
+        <p class="top-text explore">explore</p>
+        <p class="top-text create"><a href="/createpost">create</a></p>
+        
+        <div class="dropdown dropdown-btn">
+          <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+             aria-expanded="false">
+            home
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">explore</a>
+            <a class="dropdown-item" href="/createpost">create</a>
+          </div>
+        </div>
+
+        <input type="search" name="" id="searchBar" placeholder="search" />
+
+        <img src="/Image/noti.png" alt="notification" class="noti" />
+
+        <a href="/profile">
+          <img src="<%= currentUser.avtar %>" alt="user" class="user"
+        /></a>
+      </div>
+    </div>
+    <!-- feed of the page -->
+    <div class="feed-cards">
+
+      <% if(hasPosts){%>
+
+        <% allUser.forEach(user=>{ %>
+
+          <% if (user.posts && user.posts.length> 0) { %>
+
+            <% user.posts.forEach(post=> { %>
+              
+              <div class="card">
+              
+                <div class="imagePart">
+                  <img src="<%= post.imageUrl %>" class="card-img" alt="user image">
+                </div>
+              
+                <div class="captionPart">
+              
+                  <div class="caption">
+                    <p class="card-text">
+                      <%= post.caption %>
+                    </p>
+                  </div>
+              
+                  <div class="savedPost" data-postid="<%= post._id%>" data-userid="<%= post.user%>">
+                    <i class="fa-solid fa-bookmark savedIcon"></i>
+                  </div>
+              
+              
+                </div>
+              
+              
+              </div>
+
+
+            <% }); %>
+
+
+
+            <% } %>
+
+
+
+          <%});%>
+
+
+        <%} else {%>
+
+          <p>no post available</p>
+
+
+          <%}%>
+    </div>
+    <script src="/Javascript/Feed.js"></script> 
+  </body>
+</html>

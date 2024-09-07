@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/StyleSheets/Create.css" />
+  </head>
+  <body>
+    <div class="topBar">
+     <a href="/feed">
+      <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" alt="logo" class="topBar_img" />
+     </a>
+
+      <p class="top-text home"><a href="/feed">home</a></p>
+      <p class="top-text">explore</p>
+      <p class="top-text create"><a href="/createpost">create</a></p>
+
+      <input type="search" name="" id="searchBar" placeholder="search" />
+
+      <img src="/Image/noti.png" alt="notification" class="noti" />
+
+      <a href="/profile"
+        ><img src="<%= user.avtar %>" alt="user" class="user"
+      /></a>
+    </div>
+    <hr />
+
+    <h1 class="createPin">create pin</h1>
+    <hr />
+
+    <!-- upload section  -->
+    <div class="uploadcontainer">
+      <form
+        action="/api/v1/createpost/upload"
+        method="post"
+        class="form"
+        enctype="multipart/form-data"
+        onsubmit="showLoadingMessage()"
+      >
+        <div class="photouploadcontainer">
+          <label for="file-input" class="custom-file-upload">
+            <img src="/Image/up.png" alt="upload file" class="uploadfile" />
+
+            <p>choose a file to upload</p>
+            <input id="file-input" type="file" name="file" onchange="checkFileSize()"  />
+          </label>
+        </div>
+
+        <div class="caption">
+          <label for="caption">post caption:</label>
+
+          <input
+            type="text"
+            name="caption"
+            id="caption"
+            placeholder="enter the caption"
+          />
+
+          <button type="submit">upload</button>
+        </div>
+      </form>
+    </div>
+
+      <!-- Loading message -->
+      <div id="loadingMessage">Your post is being uploaded...</div>
+        <script>
+
+          function checkFileSize() {
+            const fileInput = document.getElementById('file-input');
+            if (fileInput.files.length > 0) {
+              const fileSize = fileInput.files[0].size; // File size in bytes
+              const maxSize = 6*1024 * 1024; // 6MB in bytes
+              if (fileSize > maxSize) {
+                alert('Please select a file smaller than 1MB');
+                // Clear the file input (optional)
+                fileInput.value = '';
+              }
+            }
+          }
+
+
+            function showLoadingMessage() {
+                document.getElementById('loadingMessage').style.display = 'block';
+              }
+
+
+
+          
+        </script>
+
+  </body>
+</html>
